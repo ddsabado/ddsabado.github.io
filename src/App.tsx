@@ -1,3 +1,8 @@
+import { useState } from 'react'
+import financeImage1 from './assets/screenshots/finance-demo-1.png'
+import financeImage2 from './assets/screenshots/finance-demo-2.png'
+import financeImage3 from './assets/screenshots/finance-demo-3.png'
+
 const projects = [
   {
     title: 'Guest Registration Demo',
@@ -7,7 +12,8 @@ const projects = [
   {
     title: 'Finance Tracker Demo',
     description: 'A clean dashboard concept for monitoring transactions and spending.',
-    link: 'https://sites.google.com/view/demo-finance-tracker/dashboard',
+    link: '/finance-tracker',
+    images: [financeImage1, financeImage2, financeImage3],
   },
   {
     title: 'POS System Demo',
@@ -17,6 +23,18 @@ const projects = [
 ]
 
 function App() {
+  const [activeIndex, setActiveIndex] = useState(0)
+
+  const financeImages = [financeImage1, financeImage2, financeImage3]
+
+  const showNextImage = () => {
+    setActiveIndex((current) => (current + 1) % financeImages.length)
+  }
+
+  const showPreviousImage = () => {
+    setActiveIndex((current) => (current - 1 + financeImages.length) % financeImages.length)
+  }
+
   return (
     <main className="page">
       <section className="hero">
@@ -40,6 +58,22 @@ function App() {
         <div className="project-list">
           {projects.map((project) => (
             <article className="project-card" key={project.title}>
+              {project.images ? (
+                <div className="carousel">
+                  <div className="carousel-frame">
+                    <img className="project-image" src={project.images[activeIndex]} alt={`${project.title} screenshot ${activeIndex + 1}`} />
+                  </div>
+                  <div className="carousel-controls">
+                    <button type="button" className="carousel-button" onClick={showPreviousImage}>
+                      ← Prev
+                    </button>
+                    <span className="carousel-caption">{activeIndex + 1} / {project.images.length}</span>
+                    <button type="button" className="carousel-button" onClick={showNextImage}>
+                      Next →
+                    </button>
+                  </div>
+                </div>
+              ) : null}
               <h3>{project.title}</h3>
               <p>{project.description}</p>
               <a className="button secondary" href={project.link} target="_blank" rel="noreferrer">
