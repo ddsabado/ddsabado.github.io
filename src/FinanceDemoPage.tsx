@@ -36,7 +36,7 @@ function FinanceDemoPage() {
           A thoughtful finance dashboard experience built to make budgeting feel more approachable,
           visual, and motivating.
         </p>
-        <a className="button secondary" href="/">
+        <a className="button secondary" href="#">
           ← Back to Portfolio
         </a>
       </section>

@@ -12,7 +12,7 @@ const projects = [
   {
     title: 'Finance Tracker Demo',
     description: 'A clean dashboard concept for monitoring transactions and spending.',
-    link: '/finance-tracker',
+    link: '#/finance-tracker',
     images: [financeImage1, financeImage2, financeImage3],
   },
   {
@@ -76,7 +76,7 @@ function App() {
               ) : null}
               <h3>{project.title}</h3>
               <p>{project.description}</p>
-              <a className="button secondary" href={project.link} target="_blank" rel="noreferrer">
+              <a className="button secondary" href={project.link}>
                 Open Demo
               </a>
             </article>

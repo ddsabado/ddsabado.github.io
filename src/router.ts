@@ -1,7 +1,7 @@
 export function getRoute() {
-  const path = window.location.pathname
+  const hash = window.location.hash
 
-  if (path === '/finance-tracker') {
+  if (hash.includes('finance-tracker')) {
     return 'finance'
   }
 

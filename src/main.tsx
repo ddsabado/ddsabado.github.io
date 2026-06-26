@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App'
 import FinanceDemoPage from './FinanceDemoPage'
@@ -11,10 +11,24 @@ if (!rootElement) {
   throw new Error('Root element #root was not found')
 }
 
-const route = getRoute()
+function AppShell() {
+  const [route, setRoute] = useState(getRoute)
+
+  useEffect(() => {
+    const handleHashChange = () => setRoute(getRoute())
+
+    window.addEventListener('hashchange', handleHashChange)
+
+    return () => {
+      window.removeEventListener('hashchange', handleHashChange)
+    }
+  }, [])
+
+  return route === 'finance' ? <FinanceDemoPage /> : <App />
+}
 
 ReactDOM.createRoot(rootElement).render(
   <React.StrictMode>
-    {route === 'finance' ? <FinanceDemoPage /> : <App />}
+    <AppShell />
   </React.StrictMode>
 )
