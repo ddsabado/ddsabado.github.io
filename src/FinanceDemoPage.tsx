@@ -1,9 +1,10 @@
+import React, { useState } from 'react'
 import accountBalances from './assets/finance/account-balances.png'
 import creditCardUtilization from './assets/finance/credit-card-utilization.png'
 import expenseIncome from './assets/finance/expense-income.png'
 import installments from './assets/finance/installments.png'
 
-const sections = [
+const slides = [
   {
     title: 'Account Balances',
     image: accountBalances,
@@ -27,6 +28,13 @@ const sections = [
 ]
 
 function FinanceDemoPage() {
+  const [index, setIndex] = useState(0)
+
+  const showNext = () => setIndex((i) => (i + 1) % slides.length)
+  const showPrevious = () => setIndex((i) => (i - 1 + slides.length) % slides.length)
+
+  const slide = slides[index]
+
   return (
     <main className="detail-page">
       <section className="detail-hero">
@@ -36,21 +44,29 @@ function FinanceDemoPage() {
           A thoughtful finance dashboard experience built to make budgeting feel more approachable,
           visual, and motivating.
         </p>
-        <a className="button secondary" href="#">
+        <a className="button secondary" href="#/">
           ← Back to Portfolio
         </a>
       </section>
 
       <section className="detail-content">
-        {sections.map((section) => (
-          <article className="detail-card" key={section.title}>
-            <img className="detail-image" src={section.image} alt={section.title} />
-            <div>
-              <h2>{section.title}</h2>
-              <p>{section.text}</p>
+        <article className="detail-card single">
+          <img className="detail-image" src={slide.image} alt={slide.title} />
+          <div>
+            <h2>{slide.title}</h2>
+            <p>{slide.text}</p>
+
+            <div className="carousel-controls">
+              <button type="button" className="carousel-button" onClick={showPrevious}>
+                ← Prev
+              </button>
+              <span className="carousel-caption">{index + 1} / {slides.length}</span>
+              <button type="button" className="carousel-button" onClick={showNext}>
+                Next →
+              </button>
             </div>
-          </article>
-        ))}
+          </div>
+        </article>
       </section>
     </main>
   )

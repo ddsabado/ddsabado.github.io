@@ -102,6 +102,22 @@ h1 {
   margin: 0.8rem 0 0.4rem;
 }
 
+/* Make title links subtle: no default purple/underline, but accessible hover/focus */
+.project-card h3 a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px dashed transparent;
+}
+.project-card h3 a:visited {
+  color: inherit;
+}
+.project-card h3 a:hover,
+.project-card h3 a:focus {
+  color: #93c5fd;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 .project-card p {
   margin: 0 0 0.75rem;
   color: #dbeafe;
