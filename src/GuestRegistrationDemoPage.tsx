@@ -1,35 +1,45 @@
 import React, { useEffect, useState } from 'react'
-import accountBalances from './assets/finance/account-balances.png'
-import creditCardUtilization from './assets/finance/credit-card-utilization.png'
-import expenseIncome from './assets/finance/expense-income.png'
-import installments from './assets/finance/installments.png'
-import financeImage1 from './assets/screenshots/finance-demo-1.png'
-
+import fullForm from './assets/screenshots/guest-registration/full-form.png'
+import authorizationEmail from './assets/screenshots/guest-registration/authorization-email.png'
+import authorizationLetter from './assets/screenshots/guest-registration/authorization-letter.png'
+import confirmationEmail from './assets/screenshots/guest-registration/confirmation-email.png'
+import confirmationScreen from './assets/screenshots/guest-registration/confirmation-screen.png'
+import reviewScreen from './assets/screenshots/guest-registration/review-screen.png'
 
 const slides = [
   {
-    title: 'Account Balances',
-    image: accountBalances,
-    text: 'A clear snapshot of available funds, helping users stay grounded in their cash flow at a glance.',
+    title: 'Complete Guest Form',
+    image: fullForm,
+    text: 'A guided form experience that collects the details needed for registration without overwhelming the guest.',
   },
   {
-    title: 'Credit Card Utilization',
-    image: creditCardUtilization,
-    text: 'Monitor credit card usage across billing cycles so you always know where you stand before your statement closes.',
+    title: 'Authorization Email',
+    image: authorizationEmail,
+    text: 'A clear email step ensures guests receive the next action promptly and understand what comes next.',
   },
   {
-    title: 'Expenses and Income',
-    image: expenseIncome,
-    text: 'See exactly how much you\'ve spent per category each month, with drill-down into subcategories and individual transactions.',
+    title: 'Authorization Letter',
+    image: authorizationLetter,
+    text: 'The generated authorization letter gives a formal, polished handoff that feels trustworthy and complete.',
   },
   {
-    title: 'Installments',
-    image: installments,
-    text: 'Track installment plans with automatic monthly payment logging so nothing slips through.',
+    title: 'Review Before Submit',
+    image: reviewScreen,
+    text: 'A dedicated review screen lets guests double-check every field before final submission.',
+  },
+  {
+    title: 'Confirmation Experience',
+    image: confirmationScreen,
+    text: 'The confirmation screen and follow-up email close the loop with reassurance and clear next steps.',
+  },
+  {
+    title: 'Confirmation Email',
+    image: confirmationEmail,
+    text: 'A polished confirmation email reinforces the successful registration and keeps the experience feeling complete.',
   },
 ]
 
-function FinanceDemoPage() {
+function GuestRegistrationDemoPage() {
   const [index, setIndex] = useState(0)
   const [isAutoPlaying, setIsAutoPlaying] = useState(true)
 
@@ -64,10 +74,10 @@ function FinanceDemoPage() {
     <main className="detail-page">
       <section className="detail-hero">
         <p className="eyebrow">Project Showcase</p>
-        <h1>Finance Tracker Demo</h1>
+        <h1>Guest Registration Demo</h1>
         <p className="detail-lead">
-          A thoughtful finance dashboard experience built to make budgeting feel more approachable,
-          visual, and motivating.
+          A polished guest registration experience that guides people through form completion,
+          review, and confirmation with clarity and confidence.
         </p>
         <a className="button secondary" href="#/">
           ← Back to Portfolio
@@ -75,14 +85,14 @@ function FinanceDemoPage() {
       </section>
 
       <section className="detail-card single">
-        <img className="detail-image" src={financeImage1} alt="Finance tracker dashboard preview" />
+        <img className="detail-image" src={fullForm} alt="Guest registration form preview" />
 
         <div>
           <h2>Project Snapshot</h2>
           <p className="detail-lead">
-            A personal finance tracker built on Google Sheets and Apps Script, featuring a real-time web
-            dashboard with account balances, credit card utilization, installment tracking, and monthly
-            expense breakdowns — integrated with an iOS Shortcut for receipt-based transaction entry.
+            This flow was designed to make guest registration feel calm and straightforward, with a
+            clear sequence from form entry to confirmation email. It combines a structured UI with a
+            thoughtful communication experience so each step feels intentional.
           </p>
         </div>
       </section>
@@ -132,4 +142,4 @@ function FinanceDemoPage() {
   )
 }
 
-export default FinanceDemoPage
+export default GuestRegistrationDemoPage

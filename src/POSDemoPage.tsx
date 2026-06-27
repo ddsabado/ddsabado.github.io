@@ -1,35 +1,27 @@
 import React, { useEffect, useState } from 'react'
-import accountBalances from './assets/finance/account-balances.png'
-import creditCardUtilization from './assets/finance/credit-card-utilization.png'
-import expenseIncome from './assets/finance/expense-income.png'
-import installments from './assets/finance/installments.png'
-import financeImage1 from './assets/screenshots/finance-demo-1.png'
-
+import ordersPage from './assets/screenshots/pos-demo/orders-page.png'
+import saleConfirmation from './assets/screenshots/pos-demo/sale-confirmation.png'
+import salesPage from './assets/screenshots/pos-demo/sales-page.png'
 
 const slides = [
   {
-    title: 'Account Balances',
-    image: accountBalances,
-    text: 'A clear snapshot of available funds, helping users stay grounded in their cash flow at a glance.',
+    title: 'Orders View',
+    image: ordersPage,
+    text: 'A focused orders interface that helps staff move quickly through transactions with clear visibility into active requests.',
   },
   {
-    title: 'Credit Card Utilization',
-    image: creditCardUtilization,
-    text: 'Monitor credit card usage across billing cycles so you always know where you stand before your statement closes.',
+    title: 'Sale Confirmation',
+    image: saleConfirmation,
+    text: 'A confirmation experience with printing options designed to make checkout feel smooth and dependable.',
   },
   {
-    title: 'Expenses and Income',
-    image: expenseIncome,
-    text: 'See exactly how much you\'ve spent per category each month, with drill-down into subcategories and individual transactions.',
-  },
-  {
-    title: 'Installments',
-    image: installments,
-    text: 'Track installment plans with automatic monthly payment logging so nothing slips through.',
+    title: 'Sales Dashboard',
+    image: salesPage,
+    text: 'A compact sales view that surfaces key details at a glance for faster decisions and smoother day-to-day operations.',
   },
 ]
 
-function FinanceDemoPage() {
+function POSDemoPage() {
   const [index, setIndex] = useState(0)
   const [isAutoPlaying, setIsAutoPlaying] = useState(true)
 
@@ -64,10 +56,9 @@ function FinanceDemoPage() {
     <main className="detail-page">
       <section className="detail-hero">
         <p className="eyebrow">Project Showcase</p>
-        <h1>Finance Tracker Demo</h1>
+        <h1>POS System Demo</h1>
         <p className="detail-lead">
-          A thoughtful finance dashboard experience built to make budgeting feel more approachable,
-          visual, and motivating.
+          A practical point-of-sale experience built to keep transactions fast, clear, and reliable for staff and customers alike.
         </p>
         <a className="button secondary" href="#/">
           ← Back to Portfolio
@@ -75,14 +66,13 @@ function FinanceDemoPage() {
       </section>
 
       <section className="detail-card single">
-        <img className="detail-image" src={financeImage1} alt="Finance tracker dashboard preview" />
+        <img className="detail-image" src={ordersPage} alt="POS system orders preview" />
 
         <div>
           <h2>Project Snapshot</h2>
           <p className="detail-lead">
-            A personal finance tracker built on Google Sheets and Apps Script, featuring a real-time web
-            dashboard with account balances, credit card utilization, installment tracking, and monthly
-            expense breakdowns — integrated with an iOS Shortcut for receipt-based transaction entry.
+            This POS interface focuses on speed and usability, with screens for order management,
+            sale confirmation, and sales tracking. The experience is designed to feel simple in a busy environment.
           </p>
         </div>
       </section>
@@ -132,4 +122,4 @@ function FinanceDemoPage() {
   )
 }
 
-export default FinanceDemoPage
+export default POSDemoPage
