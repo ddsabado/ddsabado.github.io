@@ -82,6 +82,9 @@ function GuestRegistrationDemoPage() {
         <a className="button secondary" href="#/">
           ← Back to Portfolio
         </a>
+        <a className="button secondary" href="https://sites.google.com/view/demo-guest-reg/registration" target="_blank" rel="noreferrer">
+          Live Demo
+        </a>
       </section>
 
       <section className="detail-card single">

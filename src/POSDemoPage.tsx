@@ -63,6 +63,9 @@ function POSDemoPage() {
         <a className="button secondary" href="#/">
           ← Back to Portfolio
         </a>
+        <a className="button secondary" href="https://sites.google.com/view/demo-pos-system/pos" target="_blank" rel="noreferrer">
+          Live Demo
+        </a>
       </section>
 
       <section className="detail-card single">
