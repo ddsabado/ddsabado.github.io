@@ -26,6 +26,12 @@ function AppShell() {
     }
   }, [])
 
+  useEffect(() => {
+    window.requestAnimationFrame(() => {
+      window.scrollTo({ top: 0, left: 0, behavior: 'auto' })
+    })
+  }, [route])
+
   if (route === 'finance') {
     return <FinanceDemoPage />
   }

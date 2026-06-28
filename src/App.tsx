@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import SplideCarousel from './components/SplideCarousel'
 import guestRegistrationImage1 from './assets/screenshots/guest-registration/full-form.png'
 import guestRegistrationImage2 from './assets/screenshots/guest-registration/review-screen.png'
 import guestRegistrationImage3 from './assets/screenshots/guest-registration/confirmation-screen.png'
@@ -31,12 +31,6 @@ const projects = [
 ]
 
 function App() {
-  const [activeIndexes, setActiveIndexes] = useState<number[]>(() => projects.map(() => 0))
-
-  const updateProjectIndex = (projectIndex: number, nextIndex: number) => {
-    setActiveIndexes((current) => current.map((value, index) => (index === projectIndex ? nextIndex : value)))
-  }
-
   return (
     <main className="page">
       <section className="hero">
@@ -58,56 +52,29 @@ function App() {
       <section className="card">
         <h2>Featured Projects</h2>
         <div className="project-list">
-          {projects.map((project, projectIndex) => {
-            const activeIndex = activeIndexes[projectIndex] ?? 0
-
-            return (
-              <article className="project-card" key={project.title}>
-                {project.images ? (
-                  <div className="carousel">
-                    <div className="carousel-frame">
-                      <img className="project-image" src={project.images[activeIndex]} alt={`${project.title} screenshot ${activeIndex + 1}`} />
-
-                      <button
-                        type="button"
-                        className="carousel-overlay-button left"
-                        onClick={() => updateProjectIndex(projectIndex, (activeIndex - 1 + project.images.length) % project.images.length)}
-                        aria-label="Previous slide"
-                      >
-                        ←
-                      </button>
-
-                      <button
-                        type="button"
-                        className="carousel-overlay-button right"
-                        onClick={() => updateProjectIndex(projectIndex, (activeIndex + 1) % project.images.length)}
-                        aria-label="Next slide"
-                      >
-                        →
-                      </button>
-
-                      <div className="carousel-dots" role="tablist" aria-label="Slide dots">
-                        {project.images.map((_, i) => (
-                          <button
-                            key={i}
-                            className={i === activeIndex ? 'active' : ''}
-                            onClick={() => updateProjectIndex(projectIndex, i)}
-                            aria-label={`Go to slide ${i + 1}`}
-                          />
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                ) : null}
-                <h3>
-                  <a href={project.link}>
-                    {project.title}
-                  </a>
-                </h3>
-                <p>{project.description}</p>
-              </article>
-            )
-          })}
+          {projects.map((project) => (
+            <article className="project-card" key={project.title}>
+              {project.images ? (
+                <div className="carousel">
+                  <SplideCarousel
+                    slides={project.images.map((image, index) => ({
+                      image,
+                      title: `${project.title} screenshot ${index + 1}`,
+                      alt: `${project.title} screenshot ${index + 1}`,
+                    }))}
+                    imageClassName="project-image"
+                    autoplay={false}
+                  />
+                </div>
+              ) : null}
+              <h3>
+                <a href={project.link}>
+                  {project.title}
+                </a>
+              </h3>
+              <p>{project.description}</p>
+            </article>
+          ))}
         </div>
       </section>
     </main>
