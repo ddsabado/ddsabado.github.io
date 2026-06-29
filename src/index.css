@@ -1,10 +1,26 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-perano-50: #eff5fe;
+  --color-perano-100: #e1ebfe;
+  --color-perano-200: #c9dafc;
+  --color-perano-300: #99b6f8;
+  --color-perano-400: #859ef4;
+  --color-perano-500: #687cec;
+  --color-perano-600: #4b56e0;
+  --color-perano-700: #3d45c5;
+  --color-perano-800: #343c9f;
+  --color-perano-900: #31387e;
+  --color-perano-950: #1d2049;
+}
+
 :root {
   color-scheme: dark;
   font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   line-height: 1.5;
   font-weight: 400;
-  color: #f5f7ff;
-  background: linear-gradient(135deg, #0f172a, #1d4ed8);
+  color: #eff5fe;
+  background: linear-gradient(135deg, #1d2049, #4b56e0);
 }
 
 * {
@@ -30,12 +46,12 @@ body {
 .hero,
 .card {
   width: min(900px, 100%);
-  background: rgba(15, 23, 42, 0.72);
+  background: rgba(29, 32, 73, 0.78);
   backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(225, 235, 254, 0.16);
   border-radius: 24px;
   padding: 2rem;
-  box-shadow: 0 20px 50px rgba(15, 23, 42, 0.25);
+  box-shadow: 0 20px 50px rgba(29, 32, 73, 0.3);
 }
 
 .hero {
@@ -46,7 +62,7 @@ body {
   text-transform: uppercase;
   letter-spacing: 0.3em;
   font-size: 0.8rem;
-  color: #93c5fd;
+  color: var(--perano-300);
   margin-bottom: 0.5rem;
 }
 
@@ -57,7 +73,7 @@ h1 {
 
 .lead {
   font-size: 1.1rem;
-  color: #dbeafe;
+  color: var(--perano-100);
   margin: 0 0 1.25rem;
 }
 
@@ -76,13 +92,13 @@ h1 {
 }
 
 .button.primary {
-  background: #38bdf8;
-  color: #082f49;
+  background: var(--perano-400);
+  color: var(--perano-950);
 }
 
 .button.secondary {
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  color: #f8fafc;
+  border: 1px solid rgba(225, 235, 254, 0.2);
+  color: var(--perano-50);
 }
 
 .project-list {
@@ -92,8 +108,8 @@ h1 {
 }
 
 .project-card {
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(225, 235, 254, 0.06);
+  border: 1px solid rgba(225, 235, 254, 0.12);
   border-radius: 16px;
   padding: 1rem 1.1rem;
 }
@@ -113,14 +129,14 @@ h1 {
 }
 .project-card h3 a:hover,
 .project-card h3 a:focus {
-  color: #93c5fd;
+  color: var(--perano-300);
   text-decoration: underline;
   text-underline-offset: 3px;
 }
 
 .project-card p {
   margin: 0 0 0.75rem;
-  color: #dbeafe;
+  color: var(--perano-100);
 }
 
 .carousel {
@@ -135,8 +151,8 @@ h1 {
   align-items: center;
   border-radius: 12px;
   overflow: hidden;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(225, 235, 254, 0.06);
+  border: 1px solid rgba(225, 235, 254, 0.14);
   padding: 0.5rem;
 }
 
@@ -160,21 +176,21 @@ h1 {
 }
 
 .splide__pagination__page {
-  background: rgba(255, 255, 255, 0.35);
+  background: rgba(225, 235, 254, 0.35);
   width: 10px;
   height: 10px;
   margin: 0 0.25rem;
 }
 
 .splide__pagination__page.is-active {
-  background: #93c5fd;
+  background: var(--perano-300);
   transform: scale(1.1);
 }
 
 .splide__arrow {
-  background: rgba(2, 6, 23, 0.7);
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  color: #f8fafc;
+  background: rgba(29, 32, 73, 0.82);
+  border: 1px solid rgba(225, 235, 254, 0.16);
+  color: var(--perano-50);
   width: 2.5rem;
   height: 2.5rem;
   opacity: 1;
@@ -185,7 +201,7 @@ h1 {
 }
 
 .splide__arrow:hover:not(:disabled) {
-  background: rgba(2, 6, 23, 0.9);
+  background: rgba(29, 32, 73, 0.95);
 }
 
 .project-image {
@@ -203,16 +219,16 @@ h1 {
 }
 
 .carousel-button {
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  background: rgba(255, 255, 255, 0.06);
-  color: #f8fafc;
+  border: 1px solid rgba(225, 235, 254, 0.2);
+  background: rgba(225, 235, 254, 0.06);
+  color: var(--perano-50);
   border-radius: 999px;
   padding: 0.55rem 0.8rem;
   cursor: pointer;
 }
 
 .carousel-caption {
-  color: #cbd5e1;
+  color: var(--perano-200);
   font-size: 0.95rem;
 }
 
@@ -221,9 +237,9 @@ h1 {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(2, 6, 23, 0.6);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  color: #f8fafc;
+  background: rgba(29, 32, 73, 0.7);
+  border: 1px solid rgba(225, 235, 254, 0.12);
+  color: var(--perano-50);
   padding: 0.45rem 0.6rem;
   border-radius: 999px;
   cursor: pointer;
@@ -247,36 +263,36 @@ h1 {
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.28);
+  background: rgba(225, 235, 254, 0.28);
   border: none;
   padding: 0;
   cursor: pointer;
 }
 .carousel-dots button.active {
-  background: #93c5fd;
-  box-shadow: 0 0 0 4px rgba(147, 197, 253, 0.12);
+  background: var(--perano-300);
+  box-shadow: 0 0 0 4px rgba(153, 182, 248, 0.16);
 }
 
 .detail-page {
   min-height: 100vh;
   padding: 2rem;
-  background: linear-gradient(135deg, #0f172a, #1d4ed8);
-  color: #f8fafc;
+  background: linear-gradient(135deg, var(--perano-950), var(--perano-600));
+  color: var(--perano-50);
 }
 
 .detail-hero,
 .detail-card {
   width: min(1000px, 100%);
   margin: 0 auto 1.25rem;
-  background: rgba(15, 23, 42, 0.72);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(29, 32, 73, 0.78);
+  border: 1px solid rgba(225, 235, 254, 0.14);
   border-radius: 24px;
   padding: 2rem;
-  box-shadow: 0 20px 50px rgba(15, 23, 42, 0.25);
+  box-shadow: 0 20px 50px rgba(29, 32, 73, 0.3);
 }
 
 .detail-lead {
-  color: #dbeafe;
+  color: var(--perano-100);
   font-size: 1.05rem;
   margin-bottom: 1rem;
 }
@@ -320,7 +336,7 @@ h1 {
 .detail-image {
   width: 100%;
   border-radius: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(225, 235, 254, 0.12);
 }
 
 @media (max-width: 760px) {
