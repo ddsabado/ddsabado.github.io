@@ -1,26 +1,26 @@
 @import 'tailwindcss';
 
 @theme {
-  --color-perano-50: #eff5fe;
-  --color-perano-100: #e1ebfe;
-  --color-perano-200: #c9dafc;
-  --color-perano-300: #99b6f8;
-  --color-perano-400: #859ef4;
-  --color-perano-500: #687cec;
-  --color-perano-600: #4b56e0;
-  --color-perano-700: #3d45c5;
-  --color-perano-800: #343c9f;
-  --color-perano-900: #31387e;
-  --color-perano-950: #1d2049;
+  --color-white-50: oklch(1.0000 0.0000 0.0000);
+  --color-white-100: oklch(1.0000 0.0000 0.0000);
+  --color-white-200: oklch(1.0000 0.0000 0.0000);
+  --color-white-300: oklch(1.0000 0.0000 0.0000);
+  --color-white-400: oklch(0.9761 0.0000 0.0000);
+  --color-white-500: oklch(0.8576 0.0000 0.0000);
+  --color-white-600: oklch(0.7380 0.0000 0.0000);
+  --color-white-700: oklch(0.6167 0.0000 0.0000);
+  --color-white-800: oklch(0.4962 0.0000 0.0000);
+  --color-white-900: oklch(0.3791 0.0000 0.0000);
+  --color-white-950: oklch(0.2562 0.0000 0.0000);
 }
 
 :root {
-  color-scheme: dark;
+  color-scheme: light;
   font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   line-height: 1.5;
   font-weight: 400;
-  color: #eff5fe;
-  background: linear-gradient(135deg, #1d2049, #4b56e0);
+  color: var(--color-white-950);
+  background: radial-gradient(circle at top, var(--color-white-50), var(--color-white-100) 35%, var(--color-white-200) 75%);
 }
 
 * {
@@ -46,12 +46,12 @@ body {
 .hero,
 .card {
   width: min(900px, 100%);
-  background: rgba(29, 32, 73, 0.78);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(225, 235, 254, 0.16);
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(0, 0, 0, 0.08);
   border-radius: 24px;
   padding: 2rem;
-  box-shadow: 0 20px 50px rgba(29, 32, 73, 0.3);
+  box-shadow: 0 16px 35px rgba(0, 0, 0, 0.08);
 }
 
 .hero {
@@ -62,7 +62,7 @@ body {
   text-transform: uppercase;
   letter-spacing: 0.3em;
   font-size: 0.8rem;
-  color: var(--perano-300);
+  color: var(--color-white-800);
   margin-bottom: 0.5rem;
 }
 
@@ -73,7 +73,7 @@ h1 {
 
 .lead {
   font-size: 1.1rem;
-  color: var(--perano-100);
+  color: var(--color-white-700);
   margin: 0 0 1.25rem;
 }
 
@@ -85,20 +85,35 @@ h1 {
 
 .button {
   display: inline-block;
-  padding: 0.8rem 1rem;
+  padding: 0.7rem 1rem;
   border-radius: 999px;
   text-decoration: none;
-  font-weight: 600;
+  font-weight: 700;
+  font-size: 0.9rem;
+  transition: transform 160ms ease, box-shadow 160ms ease, background-color 160ms ease;
 }
 
 .button.primary {
-  background: var(--perano-400);
-  color: var(--perano-950);
+  background: var(--color-white-950);
+  color: var(--color-white-50);
+  box-shadow: 0 10px 18px rgba(0, 0, 0, 0.12);
+}
+
+.button.primary:hover,
+.button.primary:focus-visible {
+  transform: translateY(-1px);
+  background: var(--color-white-900);
 }
 
 .button.secondary {
-  border: 1px solid rgba(225, 235, 254, 0.2);
-  color: var(--perano-50);
+  background: rgba(255, 255, 255, 0.82);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  color: var(--color-white-950);
+}
+
+.button.secondary:hover,
+.button.secondary:focus-visible {
+  background: rgba(255, 255, 255, 0.96);
 }
 
 .project-list {
@@ -108,35 +123,44 @@ h1 {
 }
 
 .project-card {
-  background: rgba(225, 235, 254, 0.06);
-  border: 1px solid rgba(225, 235, 254, 0.12);
-  border-radius: 16px;
-  padding: 1rem 1.1rem;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 24px;
+  padding: 1rem;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.08);
 }
 
 .project-card h3 {
   margin: 0.8rem 0 0.4rem;
 }
 
-/* Make title links subtle: no default purple/underline, but accessible hover/focus */
 .project-card h3 a {
   color: inherit;
   text-decoration: none;
-  border-bottom: 1px dashed transparent;
-}
-.project-card h3 a:visited {
-  color: inherit;
-}
-.project-card h3 a:hover,
-.project-card h3 a:focus {
-  color: var(--perano-300);
-  text-decoration: underline;
-  text-underline-offset: 3px;
 }
 
 .project-card p {
   margin: 0 0 0.75rem;
-  color: var(--perano-100);
+  color: var(--color-white-800);
+}
+
+.tag-bubble {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.35rem 0.7rem;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.05);
+  color: var(--color-white-950);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.project-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 0.75rem;
 }
 
 .carousel {
@@ -183,14 +207,14 @@ h1 {
 }
 
 .splide__pagination__page.is-active {
-  background: var(--perano-300);
+  background: var(--color-white-800);
   transform: scale(1.1);
 }
 
 .splide__arrow {
-  background: rgba(29, 32, 73, 0.82);
-  border: 1px solid rgba(225, 235, 254, 0.16);
-  color: var(--perano-50);
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  color: var(--color-white-950);
   width: 2.5rem;
   height: 2.5rem;
   opacity: 1;
@@ -219,16 +243,16 @@ h1 {
 }
 
 .carousel-button {
-  border: 1px solid rgba(225, 235, 254, 0.2);
-  background: rgba(225, 235, 254, 0.06);
-  color: var(--perano-50);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--color-white-950);
   border-radius: 999px;
   padding: 0.55rem 0.8rem;
   cursor: pointer;
 }
 
 .carousel-caption {
-  color: var(--perano-200);
+  color: var(--color-white-700);
   font-size: 0.95rem;
 }
 
@@ -237,9 +261,9 @@ h1 {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(29, 32, 73, 0.7);
-  border: 1px solid rgba(225, 235, 254, 0.12);
-  color: var(--perano-50);
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  color: var(--color-white-950);
   padding: 0.45rem 0.6rem;
   border-radius: 999px;
   cursor: pointer;
@@ -263,36 +287,36 @@ h1 {
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background: rgba(225, 235, 254, 0.28);
+  background: rgba(0, 0, 0, 0.12);
   border: none;
   padding: 0;
   cursor: pointer;
 }
 .carousel-dots button.active {
-  background: var(--perano-300);
-  box-shadow: 0 0 0 4px rgba(153, 182, 248, 0.16);
+  background: var(--color-white-800);
+  box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.08);
 }
 
 .detail-page {
   min-height: 100vh;
   padding: 2rem;
-  background: linear-gradient(135deg, var(--perano-950), var(--perano-600));
-  color: var(--perano-50);
+  background: linear-gradient(135deg, var(--color-white-50), var(--color-white-100));
+  color: var(--color-white-950);
 }
 
 .detail-hero,
 .detail-card {
   width: min(1000px, 100%);
   margin: 0 auto 1.25rem;
-  background: rgba(29, 32, 73, 0.78);
-  border: 1px solid rgba(225, 235, 254, 0.14);
-  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.94);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 28px;
   padding: 2rem;
-  box-shadow: 0 20px 50px rgba(29, 32, 73, 0.3);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.08);
 }
 
 .detail-lead {
-  color: var(--perano-100);
+  color: var(--color-white-800);
   font-size: 1.05rem;
   margin-bottom: 1rem;
 }
@@ -336,7 +360,7 @@ h1 {
 .detail-image {
   width: 100%;
   border-radius: 16px;
-  border: 1px solid rgba(225, 235, 254, 0.12);
+  border: 1px solid rgba(0, 0, 0, 0.08);
 }
 
 @media (max-width: 760px) {
