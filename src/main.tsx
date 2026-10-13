@@ -5,6 +5,7 @@ import FinanceDemoPage from './FinanceDemoPage'
 import GuestRegistrationDemoPage from './GuestRegistrationDemoPage'
 import POSDemoPage from './POSDemoPage'
 import ContactPage from './ContactPage'
+import PortfolioNav from './components/PortfolioNav'
 import { getRoute } from './router'
 import './index.css'
 
@@ -46,10 +47,10 @@ function AppShell() {
   }
 
   if (route === 'contact') {
-    return <ContactPage />
+    return <><PortfolioNav current="contact" /><ContactPage /></>
   }
 
-  return <App />
+  return <><PortfolioNav current="projects" /><App /></>
 }
 
 ReactDOM.createRoot(rootElement).render(
