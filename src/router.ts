@@ -1,6 +1,10 @@
 export function getRoute() {
   const hash = window.location.hash
 
+  if (hash.includes('contact')) {
+    return 'contact'
+  }
+
   if (hash.includes('finance-tracker')) {
     return 'finance'
   }
