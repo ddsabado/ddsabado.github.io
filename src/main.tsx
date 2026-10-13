@@ -4,6 +4,7 @@ import App from './App'
 import FinanceDemoPage from './FinanceDemoPage'
 import GuestRegistrationDemoPage from './GuestRegistrationDemoPage'
 import POSDemoPage from './POSDemoPage'
+import ContactPage from './ContactPage'
 import { getRoute } from './router'
 import './index.css'
 
@@ -42,6 +43,10 @@ function AppShell() {
 
   if (route === 'pos') {
     return <POSDemoPage />
+  }
+
+  if (route === 'contact') {
+    return <ContactPage />
   }
 
   return <App />
