@@ -4,7 +4,7 @@ import accountBalances from "./assets/finance/account-balances.png";
 import creditCardUtilization from "./assets/finance/credit-card-utilization.png";
 import expenseIncome from "./assets/finance/expense-income.png";
 import installments from "./assets/finance/installments.png";
-import financeImage1 from "./assets/screenshots/finance-demo-1.png";
+import ledgrrDashboard from "./assets/screenshots/ledgrr-dashboard.png";
 
 const slides = [
   {
@@ -38,17 +38,17 @@ function FinanceDemoPage() {
     <main className="detail-page">
       <section className="detail-hero">
         <p className="eyebrow">Project Showcase</p>
-        <h1>Finance Tracker Demo</h1>
+        <h1>Ledgrr</h1>
         <p className="detail-lead">
-          A thoughtful finance dashboard experience built to make budgeting feel
-          more approachable, visual, and motivating.
+          A personal finance dashboard that brings balances, cards, spending,
+          and budgets into a single focused view.
         </p>
         <a className="button secondary" href="#/">
           ← Back to Portfolio
         </a>
         <a
           className="button secondary"
-          href="https://sites.google.com/view/demo-finance-tracker/dashboard"
+          href="https://ledgrr-full.vercel.app/demo"
           target="_blank"
           rel="noreferrer"
         >
@@ -59,17 +59,15 @@ function FinanceDemoPage() {
       <section className="detail-card single">
         <img
           className="detail-image"
-          src={financeImage1}
-          alt="Finance tracker dashboard preview"
+          src={ledgrrDashboard}
+          alt="Ledgrr personal finance dashboard showing account balances, credit cards, transactions, and budgets"
         />
 
         <div>
           <p className="detail-lead">
-            A personal finance tracker built on Google Sheets and Apps Script,
-            featuring a real-time web dashboard with account balances, credit
-            card utilization, installment tracking, and monthly expense
-            breakdowns — integrated with an iOS Shortcut for receipt-based
-            transaction entry.
+            Ledgrr makes the day-to-day financial picture easier to scan: cash
+            and savings accounts, credit-card balances, spending by category,
+            and budget progress live side by side.
           </p>
         </div>
       </section>
